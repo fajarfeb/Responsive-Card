@@ -1,0 +1,128 @@
+@use '../util/' as u;
+
+.card {
+    width: 30%;
+    min-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+
+    @include u.breakpoint-down(small) {
+        min-width: auto;
+        width: 95%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+    }
+
+    &__image{
+        background-image: url('/images/image-product-desktop.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 50%;
+
+        @include u.breakpoint-down(small) {
+            background-image: url(/images/image-product-mobile.jpg);
+            width: 100%;
+            height: 21.875rem;
+            border-radius: 10px 10px 0 0;
+        }
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        background-color: u.$white;
+        padding: 2.1875rem 2.0625rem;
+
+        h1 {
+            font-family: u.$fontFraunces;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+
+            @include u.breakpoint-down(small) {
+                margin-bottom: 1.75rem;
+            }
+        }
+
+        @include u.breakpoint-down(small) {
+            width: 100%;
+            padding: 1.75rem 1.625rem;
+            margin-bottom: 2.1875rem;
+        }
+    }
+
+    &__category {
+        font-size: u.$font-sm;
+        font-family: u.$fontMonserrat;
+        color: u.$darkGrayishBlue;
+        letter-spacing: 0.25rem;
+        margin-bottom: 1.5625rem;
+
+        @include u.breakpoint-down(small) {
+            margin-bottom: 1.1875rem;
+        }
+    }
+
+    &__description {
+        font-family: u.$fontMonserrat;
+        font-size: u.$font-sm;
+        line-height: 1.5;
+        color: u.$darkGrayishBlue;
+        margin-bottom: 2.375rem;
+        text-align: left;
+    }
+
+    &__price {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2.125rem;
+
+        @include u.breakpoint-down(small){
+            margin-bottom: 1.5625rem;
+        }
+
+        p:nth-child(1){
+            font-family: u.$fontFraunces;
+            font-size: 1.5rem;
+            margin-right: 1.375rem;
+            color: u.$darkCyan;
+        }
+
+        p:nth-child(2){
+            font-family: u.$fontMonserrat;
+            font-size: u.$font-sm;
+            color: u.$darkGrayishBlue;
+            text-decoration: line-through;
+        }
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 1.0625rem 0;
+        margin: 0 auto;
+        border-radius: 7px;
+        background-color: u.$darkCyan;
+        color: u.$white;
+        font-weight: 700;
+        transition: background-color 200ms ease-in-out;
+
+        img {
+            width: 1rem;
+            height: 1.125rem;
+            margin-right: 0.625rem;
+        }
+
+        &:hover {
+            background-color: u.$veryDarkBlue;
+        }
+    }
+}
